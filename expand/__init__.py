@@ -41,7 +41,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 def parse_rrule(body) -> rrule:
     freq = body.get('freq',None)
     start = body.get('start',None)
-    interval = body.get('interval',1)
+    interval = int(body.get('interval',1))
     until = body.get('until',None)
     if freq is None:
         raise ValueError('Missing required: freq')
